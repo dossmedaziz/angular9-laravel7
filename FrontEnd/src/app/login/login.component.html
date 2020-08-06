@@ -1,0 +1,31 @@
+<div class="container">
+  <app-navbar></app-navbar>
+<form class="form-signin"[formGroup]="loginForm" (ngSubmit)="login()">
+  
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="email" class="sr-only">Email address</label>
+    <input type="email" id="email" class="form-control" placeholder="Email address" name="email" formControlName="email">
+    <div *ngIf="email.touched && email.invalid"> 
+      <small *ngIf="email.errors.required" class="text-danger">email is required<br> </small> 
+      <small *ngIf="email.errors.email" class="text-danger">Invalid email<br> </small> 
+    </div>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="password" class="form-control" placeholder="Password" name="password" formControlName="password">
+    <div *ngIf="password.touched && password.invalid"> 
+      <small *ngIf="password.errors.required" class="text-danger">password is required<br> </small> 
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="loginForm.invalid">Sign in</button>
+</form>
+
+
+<div class="mx-auto" style="width: 200px;">
+    <a [routerLink]="['/register']">If want to join us ? </a>
+  </div>
+<br>
+<br>
+<br>
+<br>
+
+
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,96 @@
+<div class="container" >
+    <app-navbar></app-navbar>
+    <br>
+    <br>
+  
+    <h2>Publish Your Product</h2>
+    <br>
+    <br>
+    <br>
+      <form [formGroup]="addForm" (ngSubmit)="addProduct()">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="name">Product Name</label>
+              <input type="text" class="form-control" placeholder="product name" name="name" formControlName="name">
+              <div *ngIf="name.touched && name.invalid"> 
+                <small *ngIf="name.errors.required"class="text-danger">Name is required <br> </small> 
+                <small  *ngIf="name.errors.pattern" class="text-danger">Invalid name <br></small> 
+                <small *ngIf="name.errors.minlength" class="text-danger">Name must contain 4 characters at least<br></small> 
+                <small *ngIf="name.errors.maxlength" class="text-danger">Name must contain max 16 characters</small> 
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="subtitle">Subtitle</label>
+              <input type="text" class="form-control" id="subtitile" name="subtitle" placeholder="subtitle" formControlName="subtitle">  
+              <div *ngIf="subtitle.touched && subtitle.invalid"> 
+                <small *ngIf="subtitle.errors.required"class="text-danger">Subtitle is required <br> </small> 
+                <small  *ngIf="subtitle.errors.pattern" class="text-danger">Invalid Subtitle <br></small> 
+                <small *ngIf="subtitle.errors.minlength" class="text-danger">Subtitle must contain 4 characters at least<br></small> 
+                <small *ngIf="subtitle.errors.maxlength" class="text-danger">Subtitle must contain max 16 characters</small> 
+              </div>
+            </div>
+          </div>
+
+                    <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="description">Description</label>
+                                <textarea type="text" class="form-control" id="description"  name="description" class="form-control" placeholder="describe your product ...."formControlName="description"></textarea>
+                                <div *ngIf="description.touched && description.invalid"> 
+                                  <small *ngIf="description.errors.required"class="text-danger">Description is required <br> </small> 
+                                  <small *ngIf="description.errors.minlength" class="text-danger">Description must contain 20 characters at least<br></small> 
+
+                                </div> 
+                                
+                            </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                                    <label for="price">Price</label>
+                                    <input type="text" class="form-control" id="price" name="price" placeholder="price" formControlName="price"> 
+                                    <div *ngIf="price.touched && price.invalid"> 
+                                              <small *ngIf="price.errors.required"class="text-danger">Price is required <br> </small> 
+                                              <small  *ngIf="price.errors.pattern" class="text-danger">Invalid Price <br></small> 
+
+                                    </div>
+                         </div>   
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                                    <label for="qte"> Quantity of Your Product</label>
+                                    <input type="text" class="form-control" id="qte" name="qte" placeholder="qte"formControlName="qte"> 
+                                    <div *ngIf="qte.touched && qte.invalid"> 
+                                      <small *ngIf="qte.errors.required"class="text-danger">Quantity is required <br> </small> 
+                                      <small  *ngIf="qte.errors.pattern" class="text-danger">Invalid Quantity <br></small> 
+
+                            </div>
+                         </div>   
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                                    <label for="price">Category</label>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName="category_id">
+                                            
+                                              <option *ngFor="let category of categories" value="{{category.id}}" >{{ category.name }}</option>
+                                     
+                                    </select>
+                         </div>   
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Example file input</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                      </div>
+                    
+          
+  
+          <button type="submit" class="btn btn-info" [disabled]="addForm.invalid ">Publish</button>
+        </form>
+        <br>
+        <br>
+        <br>
+        <app-footer></app-footer>
+  </div>
+  
+  

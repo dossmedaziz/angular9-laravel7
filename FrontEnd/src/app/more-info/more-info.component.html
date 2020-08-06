@@ -1,0 +1,53 @@
+   
+   
+   <div class="container">
+    <app-navbar></app-navbar>
+
+   <div *ngIf="cnd">
+       
+    <!-- <div class="row mb-2">
+
+        <div class="col-md-12">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                  
+                    <strong class="d-inline-block mb-2 text-success"></strong>
+                 
+                    
+                
+                    <h3 class="mb-0">{{ product.name }}</h3>
+                    <div class="mb-1 text-muted">{{product.created_at}}</div> 
+                    <p class="card-text mb-auto">{{product.subtitle}}</p>
+                    <p class="card-text mb-auto">{{product.description}}</p>
+                   
+                  </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div> -->
+    <div class="wrapper">
+        <div class="product-img">
+          <img src="http://bit.ly/2tMBBTd" height="420" width="327">
+        </div>
+        <div class="product-info">
+          <div class="product-text">
+            <h1>{{ product.name }}</h1>
+            <h2>{{ product.subtitle}}</h2>
+            <p>{{ product.description }}</p>
+          </div>
+          <div class="product-price-btn">
+            <p><span>{{ product.price }}</span>DT</p><br>
+          
+          </div>
+        </div>
+      </div>
+      
+        
+        
+    </div>  
+  <app-footer></app-footer>
+
+    </div>

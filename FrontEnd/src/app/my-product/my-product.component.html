@@ -1,0 +1,60 @@
+<div class="container">
+  <app-navbar></app-navbar>
+  <div *ngIf="exist" class="alert alert-danger">
+    You Dont have Any Product Yet <a [routerLink]="['/add-product']">add </a>  new one
+  </div>
+  <div class="row mb-2">
+
+  <div class="col-md-6" *ngFor="let product of myproducts" >
+   
+       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
+         <div class="col p-4 d-flex flex-column position-static">
+           <strong *ngIf="product.confirmed == 1" class="d-inline-block mb-2 text-success">Confirmed</strong>
+           <strong *ngIf="product.confirmed == 0" class="d-inline-block mb-2 text-warning">waiting for confirmation</strong>
+           <h3 class="mb-0">{{product.name}}</h3>
+           <div class="mb-1 text-muted">{{ product.created_at}}</div>
+           <!-- <p class="mb-auto">{{ product.subtitle }}</p> -->
+          <button class="btn btn-outline-info" [routerLink]="['/update-product',product.id]">edit</button>
+          
+          <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-danger"data-toggle="modal" data-target="#exampleModalCenter">
+ Delete
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Deleting product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     Your Product will be removed permently 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button class="btn btn-outline-danger" (click)="delete(product)" data-dismiss="modal"> Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+          <button class="btn btn-outline-warning" [routerLink]="['/more-info',product.id]"> More info</button>
+       
+         </div>
+         <div class="col-auto d-none d-lg-block">
+           <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+         </div>
+       </div>
+
+ 
+  </div>
+
+
+
+    </div>
+   
+</div>
+<app-footer></app-footer>
