@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Product;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -32,6 +33,7 @@ class ProductController extends Controller
     { 
  
     $products = Product::SELECT("*")->WHERE('confirmed',1)->get() ; 
+   
                  //  Affichage
       return  ProductResource::collection($products)  ; 
     }
@@ -168,5 +170,15 @@ class ProductController extends Controller
                         $myproducts = Product::SELECT('*')->WHERE('user_id',$id)->get() ; 
 
                            return ProductResource::collection($myproducts) ; 
+            }
+
+            public function getProductByCategory($name)
+            {  
+
+                 $category = Category::SELECT("*")->WHERE('name',$name)->get() ;
+                    $id = $category[0]->id;
+            
+                $products = Product::SELECT('*')->WHERE([['confirmed',1],['category_id',$id]])->get()  ;
+                 return ProductResource::collection($products) ;
             }
 }

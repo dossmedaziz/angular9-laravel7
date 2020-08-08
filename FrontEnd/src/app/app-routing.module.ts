@@ -8,6 +8,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { AuthGuard } from './auth.guard' ; 
 import { MyProductComponent } from './my-product/my-product.component';
 import { MoreInfoComponent } from './more-info/more-info.component';
+import { CategoryComponent } from './category/category.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,10 @@ const routes: Routes = [
     component:MoreInfoComponent,
     canActivate:[AuthGuard]
 
+  },
+  {
+    path:'category/:name',
+    component:CategoryComponent
   }
 ];
 

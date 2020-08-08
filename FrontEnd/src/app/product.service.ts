@@ -14,6 +14,7 @@ export class ProductService {
   private myProductsUrl = "http://localhost:8000/api/myproducts/" ; 
   private updateProductUrl = "http://localhost:8000/api/put/" ; 
   private searchProductUrl = "http://localhost:8000/api/find?name=" ; 
+  private getProductByCategoryUrl = "http://localhost:8000/api/category/";
   constructor(private http:HttpClient , private userService :UserService) { }
 
 
@@ -48,5 +49,10 @@ export class ProductService {
              searchProduct(name :String)
              {
               return this.http.get<any>(this.searchProductUrl+name) ; 
+             }
+
+             getProductByCategory(name :String)
+             {
+               return this.http.get<any>(this.getProductByCategoryUrl+name) ;
              }
 }

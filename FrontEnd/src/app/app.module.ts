@@ -15,6 +15,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
 import { MyProductComponent } from './my-product/my-product.component';
 import { MoreInfoComponent } from './more-info/more-info.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MoreInfoComponent } from './more-info/more-info.component';
     AddProductComponent,
     UpdateProductComponent,
     MyProductComponent,
-    MoreInfoComponent
+    MoreInfoComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
